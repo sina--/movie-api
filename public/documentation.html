@@ -26,6 +26,141 @@
     <li>Allow users to add/remove movies to/from favorites</li>
     <li>Allow existing users to deregister</li>
   </ul>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Endpoint Description</th>
+        <th>URL</th>
+        <th>Method</th>
+        <th>Query Parameters</th>
+        <th>Request Body</th>
+        <th>Response Format</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Create a new user</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>N/A</td>
+        <td>
+          <pre>{
+    "name": "string"
+  }</pre>
+        </td>
+        <td>
+          <pre>{
+    "id": "string",
+    "name": "string"
+  }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td>Update an existing user</td>
+        <td>/users/:id</td>
+        <td>PUT</td>
+        <td>id: string</td>
+        <td>
+          <pre>{
+    "name": "string"
+  }</pre>
+        </td>
+        <td>
+          <pre>{
+    "id": "string",
+    "name": "string"
+  }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td>Add a favorite movie to a user</td>
+        <td>/users/:id/:movieTitle</td>
+        <td>POST</td>
+        <td>id: string<br>movieTitle: string</td>
+        <td>N/A</td>
+        <td>String message indicating success or failure</td>
+      </tr>
+      <tr>
+        <td>Remove a favorite movie from a user</td>
+        <td>/users/:id/:movieTitle</td>
+        <td>DELETE</td>
+        <td>id: string<br>movieTitle: string</td>
+        <td>N/A</td>
+        <td>String message indicating success or failure</td>
+      </tr>
+      <tr>
+        <td>Delete a user</td>
+        <td>/users/:id</td>
+        <td>DELETE</td>
+        <td>id: string</td>
+        <td>N/A</td>
+        <td>String message indicating success or failure</td>
+      </tr>
+      <tr>
+        <td>Get all movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>
+          <pre>[
+    {
+      "title": "string",
+      "genre": {
+        "name": "string"
+      },
+      "director": {
+        "name": "string"
+      }
+    }
+  ]</pre>
+        </td>
+      </tr>
+      <tr>
+        <td>Get a movie by title</td>
+        <td>/movies/:title</td>
+        <td>GET</td>
+        <td>title: string</td>
+        <td>N/A</td>
+        <td>
+          <pre>{
+    "title": "string",
+    "genre": {
+      "name": "string"
+    },
+    "director": {
+      "name": "string"
+    }
+  }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td>Get a genre by name</td>
+        <td>/movies/genre/:genreName</td>
+        <td>GET</td>
+        <td>genreName: string</td>
+        <td>N/A</td>
+        <td>
+          <pre>{
+    "name": "string"
+  }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td>Get a director by name</td>
+        <td>/movies/director/:directorName</td>
+        <td>GET</td>
+        <td>directorName: string</td>
+        <td>N/A</td>
+        <td>
+          <pre>{
+    "name": "string"
+  }</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 
 </html>

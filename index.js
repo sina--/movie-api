@@ -19,6 +19,21 @@ app.use(morgan('common'));
 //serve static files from the 'public' folder
 app.use(express.static('public'));
 
+//list domains allowed to access API
+const cors = require('cors');
+let allowedOrigins = ['http://localhost:8080'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      let messaeg = 'The CORS policy for this application doesn\'t allow access from origin ' + origin;
+      return callback(new Error(message ), false);
+    }
+    return callback(null, true);
+  }
+}));
+
 let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');

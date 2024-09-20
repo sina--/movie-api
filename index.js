@@ -19,13 +19,17 @@ app.use(morgan('common'));
 //serve static files from the 'public' folder
 app.use(express.static('public'));
 
+let auth = require('./auth')(app);
+const passport = require('passport');
+require('./passport');
+
 //GET requests
 app.get('/', (req, res) => {
   res.send('Welcome to my movie API');
 });
 
 //Get all movies 
-app.get('/movies', async (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), async (req, res) => {
   await Movies.find()
     .then((movies) => {
       res.status(201).json(movies);

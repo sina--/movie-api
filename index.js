@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 //list domains allowed to access API
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234'];
+let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'http://127.0.0.1:1234'];
 
 app.use(cors({
   origin: (origin, callback) => {

@@ -15,7 +15,7 @@ The app is deployed on Heroku with MongoDB hosted on Atlas.
 
 | Method | URL                                 | Description                                      | Authentication Required |
 |--------|-------------------------------------|--------------------------------------------------|-------------------------|
-| `GET`  | `/movies`                           | Returns a list of all movies                     | No                      |
+| `GET`  | `/movies`                           | Returns a list of all movies                     | Yes                      |
 | `GET`  | `/movies/:Title`                    | Returns data about a single movie by title       | No                      |
 | `GET`  | `/movies/genre/:genreName`          | Returns data about a genre by name/title         | No                      |
 | `GET`  | `/directors/:directorName`          | Returns data about a director by name            | No                      |
@@ -30,3 +30,7 @@ The app is deployed on Heroku with MongoDB hosted on Atlas.
 ## Deployment
 
 This app is deployed on Heroku and uses MongoDB Atlas as the database.
+
+## Related Projects
+
+- [myFlix Client](https://github.com/sina--/myFlix-client) - React front end using this movie API
